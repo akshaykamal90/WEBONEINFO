@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  /* ── Buttons ───────────────────────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-primary-600 text-white
+           px-6 py-3 rounded-xl font-semibold text-sm
+           hover:bg-primary-700 active:bg-primary-800
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           transition-all duration-200 shadow-sm hover:shadow-md
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-white dark:bg-gray-800 text-primary-600 dark:text-primary-400
+           border border-gray-200 dark:border-gray-700
+           px-6 py-3 rounded-xl font-semibold text-sm
+           hover:bg-gray-50 dark:hover:bg-gray-700
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           text-gray-700 dark:text-gray-300 px-4 py-2 rounded-xl
+           font-medium text-sm
+           hover:bg-gray-100 dark:hover:bg-gray-800
+           focus:outline-none transition-all duration-200;
+  }
+
+  /* ── Cards ─────────────────────────────────────────────────────── */
+  .card {
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);
+    padding: 1.5rem;
+  }
+
+  .dark .card {
+    background-color: #111827;
+    border-color: #1f2937;
+  }
+
+  .card-hover {
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);
+    padding: 1.5rem;
+    transition: all 0.2s;
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 4px 20px -3px rgba(0,0,0,0.12), 0 12px 25px -2px rgba(0,0,0,0.07);
+    transform: translateY(-2px);
+  }
+
+  .dark .card-hover {
+    background-color: #111827;
+    border-color: #1f2937;
+  }
+
+  .stat-card {
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);
+    padding: 1.5rem;
+    transition: all 0.2s;
+  }
+
+  .stat-card:hover {
+    box-shadow: 0 4px 20px -3px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+  }
+
+  .dark .stat-card {
+    background-color: #111827;
+    border-color: #1f2937;
+  }
+
+  /* ── Form inputs ────────────────────────────────────────────────── */
+  .input-field {
+    @apply block w-full px-4 py-3 rounded-xl
+           border border-gray-200 dark:border-gray-700
+           bg-white dark:bg-gray-800
+           text-gray-900 dark:text-gray-100
+           placeholder-gray-400 dark:placeholder-gray-500
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           transition-all duration-200 text-sm;
+  }
+
+  /* ── Section typography ─────────────────────────────────────────── */
+  .section-badge {
+    @apply inline-flex items-center gap-2
+           bg-primary-50 dark:bg-primary-950
+           text-primary-600 dark:text-primary-400
+           px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold
+           text-gray-900 dark:text-white leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed;
+  }
+
+  /* ── Tag / Chip ─────────────────────────────────────────────────── */
+  .tag {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full
+           bg-primary-50 dark:bg-primary-950
+           text-primary-700 dark:text-primary-300;
+  }
+
+  /* ── Nav links ──────────────────────────────────────────────────── */
+  .nav-link {
+    @apply px-4 py-2 rounded-lg text-sm font-medium
+           text-gray-600 dark:text-gray-400
+           hover:bg-gray-100 dark:hover:bg-gray-800
+           hover:text-gray-900 dark:hover:text-gray-100
+           transition-all duration-150;
+  }
+
+  .nav-link-active {
+    @apply px-4 py-2 rounded-lg text-sm font-semibold
+           bg-primary-600 text-white shadow-sm;
+  }
+}
