@@ -40,22 +40,23 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl border-b border-gray-200/80 dark:border-gray-800/80 shadow-sm'
           : 'bg-transparent border-b border-transparent'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="bg-primary-600 rounded-xl p-2 shadow-md group-hover:shadow-primary-500/40 transition-all duration-200">
-              <GraduationCap className="h-5 w-5 text-white" />
-            </div>
+            <img
+              src="/imentor_logo.jpeg"
+              alt="Weboneinfo Logo"
+              className="h-12 md:h-14 w-auto object-contain rounded-lg shadow-sm group-hover:scale-105 transition-transform duration-200"
+            />
             <span className="text-lg font-bold text-gray-900 dark:text-white tracking-tight">
-              i<span className="text-primary-600">Mentor</span>
+              Weboneinfo
             </span>
           </Link>
 
@@ -81,7 +82,7 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-200"
+              className="p-2.5 rounded-xl text-gray-700 dark:text-gray-300 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-200 group"
               title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {isDark ? <Sun className="h-4.5 w-4.5" /> : <Moon className="h-4.5 w-4.5" />}
@@ -123,13 +124,13 @@ const Navbar = () => {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+              className="p-2.5 rounded-xl text-gray-700 dark:text-gray-300 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-200 group"
             >
               {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+              className="p-2.5 rounded-xl text-gray-700 dark:text-gray-300 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-200 group"
               aria-label="Toggle mobile menu"
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -146,11 +147,10 @@ const Navbar = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-150 ${
-                  isActivePath(link.to)
+                className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-150 ${isActivePath(link.to)
                     ? 'bg-primary-600 text-white'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>

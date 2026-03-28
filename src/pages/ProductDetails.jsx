@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { 
-  Star, 
-  Heart, 
-  Share2, 
-  ShoppingCart, 
-  Truck, 
-  Shield, 
+import {
+  Star,
+  Heart,
+  Share2,
+  ShoppingCart,
+  Truck,
+  Shield,
   RefreshCw,
   ChevronLeft,
   ChevronRight,
@@ -158,21 +158,21 @@ const ProductDetails = () => {
           <div className="space-y-4">
             <div className="relative group">
               <div className="aspect-square bg-white bg-opacity-50 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-white border-opacity-20">
-                <img 
+                <img
                   src={productImages[selectedImage].url}
                   alt={productImages[selectedImage].alt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              
+
               {/* Navigation Arrows */}
-              <button 
+              <button
                 onClick={() => setSelectedImage((prev) => (prev - 1 + productImages.length) % productImages.length)}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 backdrop-blur-lg rounded-2xl p-3 shadow-xl hover:bg-opacity-100 transition-all duration-300 border border-white border-opacity-20"
               >
                 <ChevronLeft className="h-5 w-5 text-gray-700" />
               </button>
-              <button 
+              <button
                 onClick={() => setSelectedImage((prev) => (prev + 1) % productImages.length)}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 backdrop-blur-lg rounded-2xl p-3 shadow-xl hover:bg-opacity-100 transition-all duration-300 border border-white border-opacity-20"
               >
@@ -198,13 +198,12 @@ const ProductDetails = () => {
                 <button
                   key={image.id}
                   onClick={() => setSelectedImage(index)}
-                  className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 ${
-                    selectedImage === index 
-                      ? 'border-primary-600 ring-4 ring-primary-200 shadow-xl transform scale-105' 
+                  className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 ${selectedImage === index
+                      ? 'border-primary-600 ring-4 ring-primary-200 shadow-xl transform scale-105'
                       : 'border-white border-opacity-30 hover:border-primary-300 hover:shadow-lg'
-                  } bg-white bg-opacity-50 backdrop-blur-sm`}
+                    } bg-white bg-opacity-50 backdrop-blur-sm`}
                 >
-                  <img 
+                  <img
                     src={image.thumbnail}
                     alt={image.alt}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
@@ -220,22 +219,22 @@ const ProductDetails = () => {
             <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white border-opacity-20">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-sm text-gray-600 font-medium bg-primary-100 bg-opacity-50 px-3 py-1 rounded-full">{product.brand}</span>
-                <button 
+                <button
                   onClick={handleWishlist}
                   className="p-3 rounded-2xl bg-white bg-opacity-50 backdrop-blur-sm border border-white border-opacity-20 hover:bg-opacity-70 transition-all duration-300 shadow-lg"
                 >
                   <Heart className={`h-5 w-5 ${isWishlisted ? 'fill-red-500 text-red-500' : 'text-gray-400'}`} />
                 </button>
               </div>
-              
+
               <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">{product.name}</h1>
-              
+
               <div className="flex items-center space-x-4 mb-6">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} 
+                    <Star
+                      key={i}
+                      className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
                     />
                   ))}
                   <span className="ml-2 text-sm font-medium text-gray-700">{product.rating}</span>
@@ -285,11 +284,10 @@ const ProductDetails = () => {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`py-3 px-4 rounded-2xl border-2 text-sm font-semibold transition-all duration-300 ${
-                      selectedSize === size
+                    className={`py-3 px-4 rounded-2xl border-2 text-sm font-semibold transition-all duration-300 ${selectedSize === size
                         ? 'border-primary-600 bg-primary-600 text-white shadow-lg transform scale-105'
                         : 'border-white border-opacity-30 bg-white bg-opacity-50 hover:bg-opacity-70 text-gray-700'
-                    }`}
+                      }`}
                   >
                     {size}
                   </button>
@@ -305,9 +303,8 @@ const ProductDetails = () => {
                   <button
                     key={color.name}
                     onClick={() => setSelectedColor(color.name)}
-                    className={`relative w-12 h-12 rounded-full ${color.value} border-3 transition-all duration-300 ${
-                      selectedColor === color.name ? 'border-gray-900 shadow-lg transform scale-110' : 'border-white border-opacity-50'
-                    }`}
+                    className={`relative w-12 h-12 rounded-full ${color.value} border-3 transition-all duration-300 ${selectedColor === color.name ? 'border-gray-900 shadow-lg transform scale-110' : 'border-white border-opacity-50'
+                      }`}
                   >
                     {selectedColor === color.name && (
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -397,7 +394,7 @@ const ProductDetails = () => {
             {productImages.map((image, index) => (
               <div key={image.id} className="group">
                 <div className="aspect-square bg-white bg-opacity-60 backdrop-blur-lg rounded-3xl overflow-hidden mb-6 shadow-xl border border-white border-opacity-20 hover:shadow-2xl transition-all duration-300">
-                  <img 
+                  <img
                     src={image.url}
                     alt={image.alt}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"

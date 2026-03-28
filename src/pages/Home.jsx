@@ -136,7 +136,7 @@ const Home = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       e.target.style.display = 'none'
-                      e.target.parentElement.classList.add('flex','items-center','justify-center')
+                      e.target.parentElement.classList.add('flex', 'items-center', 'justify-center')
                     }}
                   />
                   {/* Overlay on hover */}

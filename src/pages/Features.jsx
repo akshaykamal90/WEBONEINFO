@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CTA from '../components/CTA'
-import { 
-  Users, 
-  Database, 
-  Calendar, 
-  Briefcase, 
+import {
+  Users,
+  Database,
+  Calendar,
+  Briefcase,
   BarChart3,
   UserCheck,
   MessageSquare,
@@ -199,7 +199,7 @@ const Features = () => {
       </section>
 
       {/* CTA Section */}
-      <CTA 
+      <CTA
         title="Ready to Experience These Features?"
         subtitle="See how iMentor can transform your alumni management"
         buttonText="Start Free Trial"

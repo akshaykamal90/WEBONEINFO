@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CTA from '../components/CTA'
 import StatCard from '../components/StatCard'
-import { 
-  Users, 
-  Calendar, 
-  Briefcase, 
+import {
+  Users,
+  Calendar,
+  Briefcase,
   TrendingUp,
   Search,
   Filter,
@@ -129,11 +129,10 @@ const Demo = () => {
               <button
                 key={feature.id}
                 onClick={() => setActiveDemo(feature.id)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-colors ${
-                  activeDemo === feature.id
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-colors ${activeDemo === feature.id
                     ? 'bg-primary-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 {feature.icon}
                 <span>{feature.name}</span>
@@ -244,11 +243,10 @@ const Demo = () => {
                   {demoEvents.map((event) => (
                     <div key={event.id} className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow">
                       <div className="flex items-center justify-between mb-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          event.status === 'completed' 
-                            ? 'bg-green-100 text-green-600' 
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${event.status === 'completed'
+                            ? 'bg-green-100 text-green-600'
                             : 'bg-blue-100 text-blue-600'
-                        }`}>
+                          }`}>
                           {event.status === 'completed' ? 'Completed' : 'Upcoming'}
                         </span>
                         <span className="px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-xs font-medium">
@@ -386,7 +384,7 @@ const Demo = () => {
       </section>
 
       {/* CTA Section */}
-      <CTA 
+      <CTA
         title="Ready to Transform Your Alumni Network?"
         subtitle="Start your free 14-day trial today. No credit card required."
         buttonText="Start Free Trial"

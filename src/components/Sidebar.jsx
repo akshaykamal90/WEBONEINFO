@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { 
-  LayoutDashboard, 
-  Users, 
-  Calendar, 
-  Briefcase, 
+import {
+  LayoutDashboard,
+  Users,
+  Calendar,
+  Briefcase,
   Settings,
   LogOut,
   Home
@@ -27,7 +27,7 @@ const Sidebar = () => {
     { path: '/dashboard/settings', icon: Settings, label: 'Settings', roles: ['admin', 'alumni', 'student'] },
   ]
 
-  const filteredMenuItems = menuItems.filter(item => 
+  const filteredMenuItems = menuItems.filter(item =>
     item.roles.includes(user?.role)
   )
 
@@ -54,11 +54,10 @@ const Sidebar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                  isActivePath(item.path)
+                className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${isActivePath(item.path)
                     ? 'bg-primary-600 text-white'
                     : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-                }`}
+                  }`}
               >
                 <Icon className="h-5 w-5" />
                 <span>{item.label}</span>

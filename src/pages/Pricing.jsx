@@ -121,7 +121,7 @@ const Pricing = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Choose the perfect plan for your institution. No hidden fees, no surprises.
           </p>
-          
+
           {/* Billing Toggle */}
           <div className="flex items-center justify-center space-x-4 mb-8">
             <span className={`text-lg ${billingCycle === 'monthly' ? 'text-gray-900 font-semibold' : 'text-gray-500'}`}>
@@ -132,9 +132,8 @@ const Pricing = () => {
               className="relative inline-flex h-6 w-11 items-center rounded-full bg-primary-600 transition-colors"
             >
               <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  billingCycle === 'yearly' ? 'translate-x-6' : 'translate-x-1'
-                }`}
+                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${billingCycle === 'yearly' ? 'translate-x-6' : 'translate-x-1'
+                  }`}
               />
             </button>
             <span className={`text-lg ${billingCycle === 'yearly' ? 'text-gray-900 font-semibold' : 'text-gray-500'}`}>
@@ -170,18 +169,17 @@ const Pricing = () => {
                       <span className="text-4xl font-bold text-gray-900">${plan.price}</span>
                       <span className="text-gray-600">/{billingCycle === 'monthly' ? 'month' : 'year'}</span>
                     </div>
-                    <Link 
+                    <Link
                       to={plan.name === 'Enterprise' ? '/demo' : '/register'}
-                      className={`w-full block py-3 px-6 rounded-lg font-semibold transition-colors ${
-                        plan.popular 
-                          ? 'bg-primary-600 text-white hover:bg-primary-700' 
+                      className={`w-full block py-3 px-6 rounded-lg font-semibold transition-colors ${plan.popular
+                          ? 'bg-primary-600 text-white hover:bg-primary-700'
                           : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                      }`}
+                        }`}
                     >
                       {plan.cta}
                     </Link>
                   </div>
-                  
+
                   <div className="space-y-4">
                     <div className="space-y-3">
                       {plan.features.map((feature, featureIndex) => (
@@ -191,7 +189,7 @@ const Pricing = () => {
                         </div>
                       ))}
                     </div>
-                    
+
                     {plan.excludedFeatures.length > 0 && (
                       <div className="pt-4 border-t border-gray-200">
                         <div className="space-y-3 opacity-50">
@@ -287,7 +285,7 @@ const Pricing = () => {
       </section>
 
       {/* CTA Section */}
-      <CTA 
+      <CTA
         title="Ready to Get Started?"
         subtitle="Join hundreds of institutions already using iMentor"
         buttonText="Start Your Free Trial"
