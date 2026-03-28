@@ -1,423 +1,234 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import {
-  Star,
-  Heart,
-  Share2,
-  ShoppingCart,
-  Truck,
-  Shield,
-  RefreshCw,
-  ChevronLeft,
-  ChevronRight,
-  Plus,
-  Minus,
-  Check,
-  X
-} from 'lucide-react'
+import React from "react";
+import { 
+  BarChart, GraduationCap, Users, Shield, Zap, BookOpen, 
+  Settings, Bell, Calendar, CheckCircle, MonitorPlay, Network 
+} from "lucide-react";
 
 const ProductDetails = () => {
-  const [selectedImage, setSelectedImage] = useState(0)
-  const [quantity, setQuantity] = useState(1)
-  const [selectedSize, setSelectedSize] = useState('')
-  const [selectedColor, setSelectedColor] = useState('')
-  const [isWishlisted, setIsWishlisted] = useState(false)
-
-  // Product images - using the real uploaded screenshots
-  const productImages = [
-    {
-      id: 1,
-      url: "./WhatsApp Image 2026-03-19 at 6.45.42 AM.jpeg",
-      alt: 'Product Main Interface',
-      thumbnail: "./WhatsApp Image 2026-03-19 at 6.45.42 AM.jpeg"
-    },
-    {
-      id: 2,
-      url: "./WhatsApp Image 2026-03-19 at 6.45.42 AM (1).jpeg",
-      alt: 'Product Dashboard View',
-      thumbnail: "./WhatsApp Image 2026-03-19 at 6.45.42 AM (1).jpeg"
-    },
-    {
-      id: 3,
-      url: "./WhatsApp Image 2026-03-19 at 6.45.43 AM.jpeg",
-      alt: 'Product Analytics Screen',
-      thumbnail: "./WhatsApp Image 2026-03-19 at 6.45.43 AM.jpeg"
-    },
-    {
-      id: 4,
-      url: "./WhatsApp Image 2026-03-19 at 6.45.43 AM (1).jpeg",
-      alt: 'Product User Management',
-      thumbnail: "./WhatsApp Image 2026-03-19 at 6.45.43 AM (1).jpeg"
-    },
-    {
-      id: 5,
-      url: "./WhatsApp Image 2026-03-19 at 6.45.44 AM.jpeg",
-      alt: 'Product Settings Interface',
-      thumbnail: "./WhatsApp Image 2026-03-19 at 6.45.44 AM.jpeg"
-    },
-    {
-      id: 6,
-      url: "./WhatsApp Image 2026-03-19 at 6.45.45 AM.jpeg",
-      alt: 'Product Mobile View',
-      thumbnail: "./WhatsApp Image 2026-03-19 at 6.45.45 AM.jpeg"
-    },
-    {
-      id: 7,
-      url: "./WhatsApp Image 2026-03-19 at 6.45.45 AM (1).jpeg",
-      alt: 'Product Report Generation',
-      thumbnail: "./WhatsApp Image 2026-03-19 at 6.45.45 AM (1).jpeg"
-    },
-    {
-      id: 8,
-      url: "./WhatsApp Image 2026-03-19 at 6.45.46 AM.jpeg",
-      alt: 'Product Integration Panel',
-      thumbnail: "./WhatsApp Image 2026-03-19 at 6.45.46 AM.jpeg"
-    }
-  ]
-
-  const product = {
-    id: 1,
-    name: 'Complete Educational Management Platform',
-    price: 299.99,
-    originalPrice: 499.99,
-    rating: 4.8,
-    reviews: 1247,
-    description: 'Transform your institution with our comprehensive platform that unifies alumni management, learning management system, and student administration. One solution for all your educational needs.',
-    features: [
-      'Complete alumni network management',
-      'Learning Management System with syllabus upload',
-      'Automated test paper generation',
-      'Student administration and records',
-      'Career services and job placement',
-      'Unified analytics dashboard',
-      'Mobile app access',
-      '24/7 customer support'
-    ],
-    sizes: ['Small', 'Medium', 'Large', 'Enterprise'],
-    colors: [
-      { name: 'Blue', value: 'bg-blue-600' },
-      { name: 'Purple', value: 'bg-purple-600' },
-      { name: 'Green', value: 'bg-green-600' },
-      { name: 'Orange', value: 'bg-orange-600' }
-    ],
-    inStock: true,
-    category: 'Educational Platform',
-    brand: 'iMentor',
-    sku: 'IM-001-EDU'
-  }
-
-  const handleQuantityChange = (type) => {
-    if (type === 'increase') {
-      setQuantity(prev => prev + 1)
-    } else if (type === 'decrease' && quantity > 1) {
-      setQuantity(prev => prev - 1)
-    }
-  }
-
-  const handleAddToCart = () => {
-    // Add to cart logic
-    console.log('Added to cart:', { ...product, quantity, selectedSize, selectedColor })
-  }
-
-  const handleWishlist = () => {
-    setIsWishlisted(!isWishlisted)
-  }
-
-  const handleShare = () => {
-    // Share logic
-    if (navigator.share) {
-      navigator.share({
-        title: product.name,
-        text: product.description,
-        url: window.location.href
-      })
-    }
-  }
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50">
-      {/* Background Decorative Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-primary-200 rounded-full filter blur-3xl opacity-30"></div>
-        <div className="absolute top-1/2 right-10 w-96 h-96 bg-yellow-200 rounded-full filter blur-3xl opacity-30"></div>
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-purple-200 rounded-full filter blur-3xl opacity-30"></div>
-      </div>
+    <div className="pt-24 pb-20 min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-200">
+      
+      {/* HERO SECTION */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8 pb-16">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6 tracking-tight">
+          All-in-One Smart <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">Education Platform</span>
+        </h1>
+        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+          AI-powered system to manage academics, learning, and alumni in one place. 
+          Smart, secure, and data-driven solutions for modern institutions.
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <button className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-1">
+            Get Demo
+          </button>
+          <button className="px-8 py-4 rounded-xl text-lg font-semibold border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+            Start Free Trial
+          </button>
+        </div>
+      </section>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
-        {/* Breadcrumb */}
-        <nav className="flex mb-8 text-sm">
-          <Link to="/" className="text-gray-500 hover:text-primary-600 transition-colors">Home</Link>
-          <span className="mx-2 text-gray-400">/</span>
-          <Link to="/products" className="text-gray-500 hover:text-primary-600 transition-colors">Products</Link>
-          <span className="mx-2 text-gray-400">/</span>
-          <span className="text-gray-900 font-medium">{product.name}</span>
-        </nav>
+      {/* PRODUCT MODULES */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 grid md:grid-cols-3 gap-8">
+        
+        <div className="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <BarChart className="w-7 h-7" />
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Academic Analytics</h3>
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Monitor performance with dashboards, attendance tracking, and real-time insights to improve academic outcomes.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Product Images */}
-          <div className="space-y-4">
-            <div className="relative group">
-              <div className="aspect-square bg-white bg-opacity-50 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-white border-opacity-20">
-                <img
-                  src={productImages[selectedImage].url}
-                  alt={productImages[selectedImage].alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
+        <div className="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div className="w-14 h-14 bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <GraduationCap className="w-7 h-7" />
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Learning Management</h3>
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Organize content, enable smart classes, and provide seamless access to learning resources for students.
+          </p>
+        </div>
 
-              {/* Navigation Arrows */}
-              <button
-                onClick={() => setSelectedImage((prev) => (prev - 1 + productImages.length) % productImages.length)}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 backdrop-blur-lg rounded-2xl p-3 shadow-xl hover:bg-opacity-100 transition-all duration-300 border border-white border-opacity-20"
-              >
-                <ChevronLeft className="h-5 w-5 text-gray-700" />
-              </button>
-              <button
-                onClick={() => setSelectedImage((prev) => (prev + 1) % productImages.length)}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 backdrop-blur-lg rounded-2xl p-3 shadow-xl hover:bg-opacity-100 transition-all duration-300 border border-white border-opacity-20"
-              >
-                <ChevronRight className="h-5 w-5 text-gray-700" />
-              </button>
+        <div className="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div className="w-14 h-14 bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <Users className="w-7 h-7" />
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Alumni System</h3>
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Manage alumni networks, events, and career opportunities through a centralized platform.
+          </p>
+        </div>
 
-              {/* Badges */}
-              <div className="absolute top-4 left-4 flex flex-col space-y-2">
-                {product.inStock && (
-                  <span className="bg-green-500 bg-opacity-90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                    In Stock
-                  </span>
-                )}
-                <span className="bg-red-500 bg-opacity-90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                  -40% OFF
-                </span>
-              </div>
+      </section>
+
+      {/* ROLE BASED ACCESS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center justify-center p-3 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-2xl mb-4">
+            <Shield className="w-8 h-8" />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            Role-Based Access System
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 text-center">
+          {[
+            { role: "Admin", icon: Settings },
+            { role: "Teacher", icon: BookOpen },
+            { role: "Student", icon: GraduationCap },
+            { role: "Academic Admin", icon: Shield },
+            { role: "Alumni", icon: Users }
+          ].map(({ role, icon: Icon }) => (
+            <div key={role} className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col items-center gap-3 hover:border-primary-500/50 hover:shadow-md transition-all duration-200">
+              <Icon className="w-6 h-6 text-gray-400 dark:text-gray-500" />
+              <span className="font-semibold text-gray-800 dark:text-gray-200">{role}</span>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Thumbnail Gallery */}
-            <div className="grid grid-cols-4 gap-3">
-              {productImages.map((image, index) => (
-                <button
-                  key={image.id}
-                  onClick={() => setSelectedImage(index)}
-                  className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 ${selectedImage === index
-                      ? 'border-primary-600 ring-4 ring-primary-200 shadow-xl transform scale-105'
-                      : 'border-white border-opacity-30 hover:border-primary-300 hover:shadow-lg'
-                    } bg-white bg-opacity-50 backdrop-blur-sm`}
-                >
-                  <img
-                    src={image.thumbnail}
-                    alt={image.alt}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                  />
-                </button>
+      {/* SMART FEATURES */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+          Smart Features
+        </h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { title: "Performance Insights", icon: BarChart, color: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-900/20" },
+            { title: "Management Tools", icon: Settings, color: "text-purple-500", bg: "bg-purple-50 dark:bg-purple-900/20" },
+            { title: "Instant Notifications", icon: Bell, color: "text-orange-500", bg: "bg-orange-50 dark:bg-orange-900/20" },
+            { title: "Leave Approval", icon: Calendar, color: "text-green-500", bg: "bg-green-50 dark:bg-green-900/20" },
+          ].map((feature) => (
+            <div key={feature.title} className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 flex items-center gap-4 hover:border-gray-300 dark:hover:border-gray-700 transition-colors">
+              <div className={`w-12 h-12 ${feature.bg} rounded-xl flex items-center justify-center shrink-0`}>
+                <feature.icon className={`w-6 h-6 ${feature.color}`} />
+              </div>
+              <span className="font-semibold text-gray-800 dark:text-gray-200">{feature.title}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* LMS SECTION */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
+        <div className="bg-white dark:bg-gray-900 rounded-[2.5rem] p-8 lg:p-12 shadow-sm border border-gray-100 dark:border-gray-800 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="w-14 h-14 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-2xl flex items-center justify-center mb-6">
+              <MonitorPlay className="w-7 h-7" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Learning Management System</h2>
+            <ul className="space-y-4 text-lg text-gray-600 dark:text-gray-400">
+              {[
+                "Organize learning materials",
+                "Upload and manage content",
+                "Easy student access",
+                "Smart class integration"
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-center gap-3">
+                  <CheckCircle className="w-6 h-6 text-primary-500 shrink-0" />
+                  <span>{item}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
-
-          {/* Product Information */}
-          <div className="space-y-6">
-            {/* Header */}
-            <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white border-opacity-20">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-sm text-gray-600 font-medium bg-primary-100 bg-opacity-50 px-3 py-1 rounded-full">{product.brand}</span>
-                <button
-                  onClick={handleWishlist}
-                  className="p-3 rounded-2xl bg-white bg-opacity-50 backdrop-blur-sm border border-white border-opacity-20 hover:bg-opacity-70 transition-all duration-300 shadow-lg"
-                >
-                  <Heart className={`h-5 w-5 ${isWishlisted ? 'fill-red-500 text-red-500' : 'text-gray-400'}`} />
-                </button>
-              </div>
-
-              <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">{product.name}</h1>
-
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="flex items-center">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
-                    />
-                  ))}
-                  <span className="ml-2 text-sm font-medium text-gray-700">{product.rating}</span>
-                </div>
-                <span className="text-sm text-gray-500">({product.reviews} reviews)</span>
-                <button onClick={handleShare} className="p-2 rounded-xl bg-white bg-opacity-50 backdrop-blur-sm border border-white border-opacity-20 hover:bg-opacity-70 transition-all duration-300">
-                  <Share2 className="h-4 w-4 text-gray-600" />
-                </button>
-              </div>
-
-              {/* Price */}
-              <div className="flex items-center space-x-4 mb-6">
-                <span className="text-4xl font-bold text-gray-900">${product.price}</span>
-                <span className="text-xl text-gray-500 line-through">${product.originalPrice}</span>
-                <span className="bg-red-100 text-red-600 px-3 py-2 rounded-xl text-sm font-semibold">
-                  Save ${product.originalPrice - product.price}
-                </span>
-              </div>
-            </div>
-
-            {/* Description */}
-            <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white border-opacity-20">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Description</h3>
-              <p className="text-gray-700 leading-relaxed text-lg">{product.description}</p>
-            </div>
-
-            {/* Features */}
-            <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white border-opacity-20">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features</h3>
-              <ul className="space-y-3">
-                {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <div className="bg-green-100 rounded-full p-1 mt-1">
-                      <Check className="h-4 w-4 text-green-600" />
-                    </div>
-                    <span className="text-gray-700 font-medium">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Size Selection */}
-            <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white border-opacity-20">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Package Size</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {product.sizes.map((size) => (
-                  <button
-                    key={size}
-                    onClick={() => setSelectedSize(size)}
-                    className={`py-3 px-4 rounded-2xl border-2 text-sm font-semibold transition-all duration-300 ${selectedSize === size
-                        ? 'border-primary-600 bg-primary-600 text-white shadow-lg transform scale-105'
-                        : 'border-white border-opacity-30 bg-white bg-opacity-50 hover:bg-opacity-70 text-gray-700'
-                      }`}
-                  >
-                    {size}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Color Selection */}
-            <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white border-opacity-20">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Theme Color</h3>
-              <div className="flex space-x-4">
-                {product.colors.map((color) => (
-                  <button
-                    key={color.name}
-                    onClick={() => setSelectedColor(color.name)}
-                    className={`relative w-12 h-12 rounded-full ${color.value} border-3 transition-all duration-300 ${selectedColor === color.name ? 'border-gray-900 shadow-lg transform scale-110' : 'border-white border-opacity-50'
-                      }`}
-                  >
-                    {selectedColor === color.name && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="bg-white rounded-full p-1">
-                          <Check className="h-3 w-3 text-gray-900" />
-                        </div>
-                      </div>
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Quantity and Add to Cart */}
-            <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white border-opacity-20">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Quantity</h3>
-                  <div className="flex items-center space-x-4">
-                    <button
-                      onClick={() => handleQuantityChange('decrease')}
-                      className="p-3 rounded-2xl bg-white bg-opacity-50 backdrop-blur-sm border border-white border-opacity-20 hover:bg-opacity-70 transition-all duration-300 shadow-lg"
-                    >
-                      <Minus className="h-4 w-4" />
-                    </button>
-                    <span className="w-20 text-center text-2xl font-bold text-gray-900">{quantity}</span>
-                    <button
-                      onClick={() => handleQuantityChange('increase')}
-                      className="p-3 rounded-2xl bg-white bg-opacity-50 backdrop-blur-sm border border-white border-opacity-20 hover:bg-opacity-70 transition-all duration-300 shadow-lg"
-                    >
-                      <Plus className="h-4 w-4" />
-                    </button>
-                  </div>
-                </div>
-
-                <div className="flex space-x-4">
-                  <button
-                    onClick={handleAddToCart}
-                    className="flex-1 bg-gradient-to-r from-primary-600 to-primary-700 text-white py-4 px-6 rounded-2xl font-bold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
-                  >
-                    <ShoppingCart className="h-5 w-5 mr-2" />
-                    Add to Cart
-                  </button>
-                  <button className="bg-white bg-opacity-60 backdrop-blur-sm text-gray-900 py-4 px-6 rounded-2xl font-bold hover:bg-opacity-80 transition-all duration-300 border border-white border-opacity-20 shadow-lg">
-                    Buy Now
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Trust Badges */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-2xl p-6 text-center shadow-xl border border-white border-opacity-20 hover:bg-opacity-80 transition-all duration-300">
-                <Truck className="h-8 w-8 text-primary-600 mx-auto mb-3" />
-                <span className="text-sm font-semibold text-gray-900">Free Shipping</span>
-              </div>
-              <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-2xl p-6 text-center shadow-xl border border-white border-opacity-20 hover:bg-opacity-80 transition-all duration-300">
-                <Shield className="h-8 w-8 text-primary-600 mx-auto mb-3" />
-                <span className="text-sm font-semibold text-gray-900">Secure Payment</span>
-              </div>
-              <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-2xl p-6 text-center shadow-xl border border-white border-opacity-20 hover:bg-opacity-80 transition-all duration-300">
-                <RefreshCw className="h-8 w-8 text-primary-600 mx-auto mb-3" />
-                <span className="text-sm font-semibold text-gray-900">30-Day Returns</span>
-              </div>
-            </div>
-
-            {/* Additional Info */}
-            <div className="bg-white bg-opacity-60 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white border-opacity-20">
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <span className="text-gray-500">SKU:</span>
-                  <span className="ml-2 text-gray-900 font-medium">{product.sku}</span>
-                </div>
-                <div>
-                  <span className="text-gray-500">Category:</span>
-                  <span className="ml-2 text-gray-900 font-medium">{product.category}</span>
-                </div>
-              </div>
-            </div>
+          <div className="bg-gray-50 dark:bg-gray-950/50 h-80 rounded-3xl border border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center relative overflow-hidden group">
+            <img 
+              src="/lmspreviewimg.png" 
+              alt="LMS Interface Preview" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
         </div>
+      </section>
 
-        {/* Product Gallery Section */}
-        <div className="mt-20">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Product Gallery</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {productImages.map((image, index) => (
-              <div key={image.id} className="group">
-                <div className="aspect-square bg-white bg-opacity-60 backdrop-blur-lg rounded-3xl overflow-hidden mb-6 shadow-xl border border-white border-opacity-20 hover:shadow-2xl transition-all duration-300">
-                  <img
-                    src={image.url}
-                    alt={image.alt}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2 text-lg">{image.alt}</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {index === 0 && "Main dashboard interface showing comprehensive alumni management features with real-time analytics."}
-                  {index === 1 && "Advanced analytics panel with detailed insights and performance metrics for institutional tracking."}
-                  {index === 2 && "User management system with role-based access control and comprehensive profile management."}
-                  {index === 3 && "Event management module with calendar integration and automated communication tools."}
-                  {index === 4 && "Settings and configuration panel for customizing the platform to match institutional needs."}
-                  {index === 5 && "Mobile-responsive design ensuring seamless access across all devices and platforms."}
-                  {index === 6 && "Report generation system with customizable templates and automated scheduling."}
-                  {index === 7 && "Integration hub connecting with existing educational systems and third-party services."}
-                </p>
-              </div>
-            ))}
+      {/* ALUMNI SECTION */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        <div className="bg-white dark:bg-gray-900 rounded-[2.5rem] p-8 lg:p-12 shadow-sm border border-gray-100 dark:border-gray-800 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="order-2 lg:order-1 bg-gray-50 dark:bg-gray-950/50 h-80 rounded-3xl border border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center relative overflow-hidden group">
+            <img 
+              src="/alumnipreviewimg.png" 
+              alt="Alumni Portal Preview" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div className="order-1 lg:order-2">
+            <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center mb-6">
+              <Network className="w-7 h-7" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Alumni Management</h2>
+            <ul className="space-y-4 text-lg text-gray-600 dark:text-gray-400">
+              {[
+                "Alumni registration & database",
+                "Event and networking tools",
+                "Placement integration",
+                "Career support system"
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-center gap-3">
+                  <CheckCircle className="w-6 h-6 text-blue-500 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* CORE FEATURES */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+          Core Features
+        </h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { title: "Alumni Registration", icon: Users },
+            { title: "Information System", icon: BarChart },
+            { title: "Event Management", icon: Calendar },
+            { title: "Placement Integration", icon: Zap },
+            { title: "Database Management", icon: Settings },
+            { title: "Networking & Collaboration", icon: Network },
+          ].map((item) => (
+            <div key={item.title} className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 flex items-start gap-4 hover:border-primary-500/30 transition-colors group">
+              <div className="w-10 h-10 rounded-xl bg-gray-50 dark:bg-gray-800 flex items-center justify-center shrink-0 group-hover:bg-primary-50 dark:group-hover:bg-primary-900/30 transition-colors">
+                <item.icon className="w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{item.title}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Comprehensive tools designed specifically for institutional growth.</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-32 mb-10">
+        <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-[2.5rem] p-10 sm:p-16 text-center text-white shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-black opacity-10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+          
+          <h2 className="text-3xl sm:text-4xl font-extrabold mb-6 relative z-10">
+            Transform Your Institution with Smart Technology
+          </h2>
+          <p className="text-primary-100 text-xl mb-10 max-w-2xl mx-auto relative z-10">
+            Join hundreds of institutions already using our platform to streamline their operations and boost academic performance.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+            <button className="bg-white text-primary-700 px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
+              Book Demo
+            </button>
+            <button className="border-2 border-white/30 hover:border-white text-white px-8 py-4 rounded-xl font-bold transition-all duration-200 bg-white/10 backdrop-blur-sm">
+              Contact Sales
+            </button>
+          </div>
+        </div>
+      </section>
+
     </div>
-  )
-}
+  );
+};
 
-export default ProductDetails
+export default ProductDetails;
