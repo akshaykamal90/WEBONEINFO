@@ -41,23 +41,20 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl border-b border-gray-200/80 dark:border-gray-800/80 shadow-sm'
-          : 'bg-transparent border-b border-transparent'
+        ? 'bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl border-b border-gray-200/80 dark:border-gray-800/80 shadow-sm'
+        : 'bg-transparent border-b border-transparent'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
+          <Link to="/" className="flex items-center group">
             <img
-              src="/imentor_logo.jpeg"
-              alt="Weboneinfo Logo"
-              className="h-12 md:h-14 w-auto object-contain rounded-lg shadow-sm group-hover:scale-105 transition-transform duration-200"
+              src="/logo.jpeg"
+              alt="Brand Logo"
+              className="h-12 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
-            <span className="text-lg font-bold text-gray-900 dark:text-white tracking-tight">
-              Weboneinfo
-            </span>
           </Link>
 
           {/* Desktop Nav Links */}
@@ -109,14 +106,7 @@ const Navbar = () => {
                 </button>
               </>
             ) : (
-              <>
-                <Link to="/login" className="btn-ghost text-sm px-4 py-2">
-                  Sign in
-                </Link>
-                <Link to="/register" className="btn-primary text-sm px-4 py-2">
-                  Get started
-                </Link>
-              </>
+              <></>
             )}
           </div>
 
@@ -148,8 +138,8 @@ const Navbar = () => {
                 key={link.to}
                 to={link.to}
                 className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-150 ${isActivePath(link.to)
-                    ? 'bg-primary-600 text-white'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  ? 'bg-primary-600 text-white'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
               >
                 {link.label}
@@ -175,20 +165,7 @@ const Navbar = () => {
                   </button>
                 </>
               ) : (
-                <>
-                  <Link
-                    to="/login"
-                    className="block w-full text-center px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-150"
-                  >
-                    Sign in
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="block w-full text-center px-4 py-3 rounded-xl bg-primary-600 text-white text-sm font-semibold"
-                  >
-                    Get started free
-                  </Link>
-                </>
+                <></>
               )}
             </div>
           </div>

@@ -165,7 +165,7 @@ const Contact = () => {
                   Registered Office: WebOne Info(p) Ltd, Techno Villa, T.V Puram Vaikom, PIN- 686 606
                 </p>
                 <p>
-                  Operations Office: WebOne Info(p) Ltd, Fortune Towers, Near Govt. Girls HSS, AM Road, Perumbavoor
+                  Operational Office: WebOne Info(p) Ltd, Webone office, Vytilla, Kochi, Kerala 682019
                 </p>
               </div>
             </div>
