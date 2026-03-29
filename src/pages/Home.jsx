@@ -288,7 +288,7 @@ const Home = () => {
                 Explore the full platform capabilities with our hands-on demo environment.
               </p>
               <Link
-                to="/demo"
+                to="/contact"
                 className="inline-flex items-center gap-2 bg-white text-primary-700 px-7 py-3 rounded-xl font-semibold text-sm hover:bg-primary-50 transition-all duration-200 shadow-lg"
               >
                 Try Live Demo
@@ -379,7 +379,7 @@ const Home = () => {
         title="Ready to Transform Your Alumni Network?"
         subtitle="Join hundreds of institutions already building stronger communities with iMentor."
         buttonText="Book a Free Demo"
-        to="/demo"
+        to="/contact"
       />
     </div>
   )

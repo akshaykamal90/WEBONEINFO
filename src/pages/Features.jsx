@@ -96,7 +96,7 @@ const Features = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Everything you need to build, manage, and grow a thriving alumni community
           </p>
-          <Link to="/demo" className="btn-primary">
+          <Link to="/contact" className="btn-primary">
             Explore Features
           </Link>
         </div>

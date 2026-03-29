@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { Menu, X, GraduationCap, Moon, Sun, ChevronDown } from 'lucide-react'
+import { Menu, X, GraduationCap, ChevronDown } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import { useTheme } from '../context/ThemeContext'
+import "@theme-toggles/react/css/Expand.css"
+import { Expand } from "@theme-toggles/react"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -49,11 +51,20 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
+          <Link 
+            to="/" 
+            className="flex items-center group"
+            onClick={(e) => {
+              if (location.pathname === '/') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+          >
             <img
               src="/logo.jpeg"
               alt="Brand Logo"
-              className="h-12 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              className="h-12 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105 rounded-xl transition-all duration-300 shadow-sm"
             />
           </Link>
 
@@ -76,14 +87,18 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-2">
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl text-gray-700 dark:text-gray-300 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-200 group"
+            <div
+              className="flex items-center justify-center p-1.5 rounded-xl text-gray-700 dark:text-gray-300 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-200 group"
               title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              {isDark ? <Sun className="h-4.5 w-4.5" /> : <Moon className="h-4.5 w-4.5" />}
-            </button>
+              <Expand
+                duration={750}
+                toggled={isDark}
+                toggle={toggleTheme}
+                reversed
+                className="text-xl"
+              />
+            </div>
 
             {isAuthenticated ? (
               <>
@@ -112,12 +127,17 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl text-gray-700 dark:text-gray-300 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-200 group"
+            <div
+              className="flex items-center justify-center p-1.5 rounded-xl text-gray-700 dark:text-gray-300 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-200 group"
             >
-              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
+              <Expand
+                duration={750}
+                toggled={isDark}
+                toggle={toggleTheme}
+                reversed
+                className="text-lg"
+              />
+            </div>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2.5 rounded-xl text-gray-700 dark:text-gray-300 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-200 group"

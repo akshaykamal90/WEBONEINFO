@@ -170,7 +170,7 @@ const Pricing = () => {
                       <span className="text-gray-600">/{billingCycle === 'monthly' ? 'month' : 'year'}</span>
                     </div>
                     <Link
-                      to={plan.name === 'Enterprise' ? '/demo' : '/register'}
+                      to={plan.name === 'Enterprise' ? '/contact' : '/register'}
                       className={`w-full block py-3 px-6 rounded-lg font-semibold transition-colors ${plan.popular
                           ? 'bg-primary-600 text-white hover:bg-primary-700'
                           : 'bg-gray-100 text-gray-900 hover:bg-gray-200'

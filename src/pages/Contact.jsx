@@ -46,14 +46,13 @@ const Contact = () => {
           <div className="lg:col-span-3">
             <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 dark:border-gray-800">
               <div className="mb-6 pb-6 border-b border-gray-100 dark:border-gray-800">
-                <p className="text-sm text-red-500 font-medium">* Indicates required question</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
-                    Name <span className="text-red-500">*</span>
+                    Name 
                   </label>
                   <input
                     type="text"
@@ -70,7 +69,7 @@ const Contact = () => {
                 {/* Phone */}
                 <div>
                   <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 mt-8">
-                    Phone number <span className="text-red-500">*</span>
+                    Phone number 
                   </label>
                   <input
                     type="tel"
@@ -87,7 +86,7 @@ const Contact = () => {
                 {/* Services */}
                 <div>
                   <label htmlFor="services" className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 mt-8">
-                    Service you would like to have <span className="text-red-500">*</span>
+                    Service you would like to have 
                   </label>
                   <input
                     type="text"
@@ -104,7 +103,7 @@ const Contact = () => {
                 {/* Email */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 mt-8">
-                    Email id <span className="text-red-500">*</span>
+                    Email id
                   </label>
                   <input
                     type="email"

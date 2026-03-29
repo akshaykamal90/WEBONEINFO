@@ -65,7 +65,7 @@ const Hero = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
-                to="/demo"
+                to="/contact"
                 className="btn-primary px-7 py-3.5 text-base rounded-xl shadow-lg shadow-primary-500/20 hover:shadow-primary-500/30"
               >
                 Book a Free Demo
@@ -104,75 +104,17 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right – Visual Dashboard card */}
+          {/* Right – Visual Image Banner */}
           <div className="relative hidden lg:block">
-            {/* Main dashboard preview card */}
-            <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
-              {/* Window chrome */}
-              <div className="flex items-center gap-2 px-5 py-4 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="w-3 h-3 rounded-full bg-amber-400" />
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
-                </div>
-                <div className="flex-1 mx-4">
-                  <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded-md w-48 mx-auto" />
-                </div>
-              </div>
-
-              {/* Dashboard content */}
-              <div className="p-6">
-                {/* Stats row */}
-                <div className="grid grid-cols-3 gap-3 mb-5">
-                  {[
-                    { label: 'Total Alumni', value: '2,847', color: 'bg-primary-50 dark:bg-primary-950', text: 'text-primary-700 dark:text-primary-300' },
-                    { label: 'Events Active', value: '24', color: 'bg-emerald-50 dark:bg-emerald-950', text: 'text-emerald-700 dark:text-emerald-300' },
-                    { label: 'Jobs Posted', value: '156', color: 'bg-amber-50 dark:bg-amber-950', text: 'text-amber-700 dark:text-amber-300' },
-                  ].map((stat) => (
-                    <div key={stat.label} className={`${stat.color} rounded-xl p-3`}>
-                      <p className={`text-xl font-bold ${stat.text}`}>{stat.value}</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Chart placeholder */}
-                <div className="bg-gray-50 dark:bg-gray-800/60 rounded-xl p-4 mb-4">
-                  <div className="flex items-end gap-1.5 h-20">
-                    {[40, 65, 45, 80, 60, 90, 75, 95, 70, 85, 100, 78].map((h, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 rounded-t-md bg-primary-400 dark:bg-primary-500 opacity-80"
-                        style={{ height: `${h}%` }}
-                      />
-                    ))}
-                  </div>
-                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">Alumni engagement — last 12 months</p>
-                </div>
-
-                {/* Recent alumni list */}
-                <div className="space-y-2.5">
-                  {[
-                    { name: 'Sarah Johnson', role: 'Google · SWE', badge: 'Active' },
-                    { name: 'Michael Chen', role: 'Microsoft · PM', badge: 'Mentor' },
-                    { name: 'Emily Davis', role: 'Apple · Design', badge: 'New' },
-                  ].map((a) => (
-                    <div key={a.name} className="flex items-center justify-between">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-xs font-bold">
-                          {a.name[0]}
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-800 dark:text-gray-200">{a.name}</p>
-                          <p className="text-[10px] text-gray-400 dark:text-gray-500">{a.role}</p>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-primary-50 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300">
-                        {a.badge}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            {/* Main banner image */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                <img 
+                  src="/webone banner.jpeg" 
+                  alt="Webone Education Platform" 
+                  className="w-full h-auto object-cover transform scale-100 group-hover:scale-[1.02] transition-transform duration-700"
+                />
               </div>
             </div>
 

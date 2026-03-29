@@ -9,7 +9,7 @@ const Footer = () => {
     Products: [
       { label: 'Features', to: '/features' },
       { label: 'Pricing', to: '/pricing' },
-      { label: 'Demo', to: '/demo' },
+      { label: 'Demo', to: '/contact' },
       { label: 'Platform Details', to: '/products' },
     ],
     Company: [
@@ -38,11 +38,20 @@ const Footer = () => {
 
           {/* Brand & Contact Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="inline-block group">
+            <Link 
+              to="/" 
+              className="inline-block group"
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+            >
               <img 
                 src="/logo.jpeg" 
                 alt="Weboneinfo Logo" 
-                className="h-10 rounded-md shadow-sm group-hover:shadow-md transition-shadow duration-200"
+                className="h-10 rounded-xl shadow-sm group-hover:shadow-md transition-all duration-200"
               />
             </Link>
             <p className="text-sm leading-relaxed text-gray-400 max-w-sm">
