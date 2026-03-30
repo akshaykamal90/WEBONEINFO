@@ -105,7 +105,7 @@ const Hero = () => {
           </div>
 
           {/* Right – Visual Image Banner */}
-          <div className="relative hidden lg:block">
+          <div className="relative mt-12 lg:mt-0">
             {/* Main banner image */}
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
@@ -118,13 +118,13 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Floating stat cards */}
-            <div className="absolute -top-4 -right-4 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 p-4 animate-float">
+            {/* Floating stat cards - Hidden on mobile for clarity */}
+            <div className="hidden sm:block absolute -top-4 -right-4 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 p-4 animate-float">
               <p className="text-2xl font-extrabold text-primary-600">98%</p>
               <p className="text-xs text-gray-500 dark:text-gray-400">Satisfaction Rate</p>
             </div>
 
-            <div className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 p-4 animate-float" style={{ animationDelay: '3s' }}>
+            <div className="hidden sm:block absolute -bottom-4 -left-4 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 p-4 animate-float" style={{ animationDelay: '3s' }}>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <p className="text-xs font-semibold text-gray-700 dark:text-gray-300">Platform live</p>
