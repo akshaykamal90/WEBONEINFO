@@ -9,12 +9,13 @@ import DashboardLayout from './layouts/DashboardLayout'
 // Pages
 import Home from './pages/Home'
 import About from './pages/About'
-import Careers from './pages/Careers'
+import Services from './pages/Services'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import ProductDetails from './pages/ProductDetails'
+import ScrollToTop from './components/ScrollToTop'
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -33,11 +34,12 @@ function App() {
       <ToastProvider>
         <AuthProvider>
           <Router>
+            <ScrollToTop />
             <Routes>
               {/* Public Routes with MainLayout */}
               <Route path="/" element={<MainLayout><Home /></MainLayout>} />
               <Route path="/about" element={<MainLayout><About /></MainLayout>} />
-              <Route path="/careers" element={<MainLayout><Careers /></MainLayout>} />
+              <Route path="/services" element={<MainLayout><Services /></MainLayout>} />
               <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
               <Route path="/product-details" element={<MainLayout><ProductDetails /></MainLayout>} />
               <Route path="/login" element={<MainLayout><Login /></MainLayout>} />

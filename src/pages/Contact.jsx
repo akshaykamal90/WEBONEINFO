@@ -34,7 +34,7 @@ const Contact = () => {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-300 dark:text-gray-600 mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold dark:text-gray-600 mb-4 tracking-tight">
             Contact Us
           </h1>
         </div>
@@ -139,10 +139,10 @@ const Contact = () => {
               <h3 className="text-[1.35rem] font-bold text-gray-900 dark:text-white mb-2">Email</h3>
               <div className="space-y-1">
                 <a href="mailto:info@webone.in" className="block text-gray-700 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">
-                  info@webone.in
+                  mail@weboneinfo.com
                 </a>
                 <a href="mailto:support@webone.in" className="block text-gray-700 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">
-                  support@webone.in
+                  towebone@gmail.com
                 </a>
               </div>
             </div>
@@ -164,7 +164,7 @@ const Contact = () => {
                   Registered Office: WebOne Info(p) Ltd, Techno Villa, T.V Puram Vaikom, PIN- 686 606
                 </p>
                 <p>
-                  Operational Office: WebOne Info(p) Ltd, Webone office, Vytilla, Kochi, Kerala 682019
+                  Administrative Office: WebOne Info(p) Ltd, Elamkulam, Vytilla, Kochi, Kerala 682019
                 </p>
               </div>
             </div>

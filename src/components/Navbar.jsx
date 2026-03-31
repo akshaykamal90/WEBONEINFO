@@ -34,9 +34,9 @@ const Navbar = () => {
 
   const navLinks = [
     { to: '/', label: 'Home' },
-    { to: '/about', label: 'About Us' },
     { to: '/product-details', label: 'Products' },
-    { to: '/careers', label: 'Careers' },
+    { to: '/services', label: 'Services' },
+    { to: '/about', label: 'About Us' },
     { to: '/contact', label: 'Contact Us' },
   ]
 
@@ -79,6 +79,11 @@ const Navbar = () => {
                     ? 'nav-link-active'
                     : 'nav-link'
                 }
+                onClick={() => {
+                  if (isActivePath(link.to)) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
               >
                 {link.label}
               </Link>
@@ -161,6 +166,11 @@ const Navbar = () => {
                   ? 'bg-primary-600 text-white'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
+                onClick={() => {
+                  if (isActivePath(link.to)) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
               >
                 {link.label}
               </Link>

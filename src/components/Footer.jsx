@@ -13,8 +13,8 @@ const Footer = () => {
       { label: 'Platform Details', to: '/products' },
     ],
     Company: [
+      { label: 'Services', to: '/services' },
       { label: 'About Us', to: '/about' },
-      { label: 'Careers', to: '/careers' },
       { label: 'Contact Us', to: '/contact' },
     ],
     Legal: [
@@ -62,7 +62,7 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
                 <span className="text-sm text-gray-400">
-Operational Office: WebOne Info(p) Ltd, Webone office, Vytilla, Kochi, Kerala 682019                </span>
+Operational Office: WebOne Info(p) Ltd,Elamkulam, Vytilla, Kochi, Kerala 682019                </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary-500 shrink-0" />
@@ -73,7 +73,7 @@ Operational Office: WebOne Info(p) Ltd, Webone office, Vytilla, Kochi, Kerala 68
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary-500 shrink-0" />
                 <span className="text-sm text-gray-400">
-                  hello@weboneinfo.com
+                  mail@weboneinfo.com
                 </span>
               </div>
             </div>

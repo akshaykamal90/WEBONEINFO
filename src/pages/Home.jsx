@@ -53,7 +53,7 @@ const Home = () => {
     { icon: UserCheck, title: 'Alumni Management', description: 'Build a thriving alumni network with mentorship programs, events, and career opportunities.' },
     { icon: Database, title: 'Learning Management', description: 'Teachers can upload syllabi, create tests, and manage courses from one place.' },
     { icon: Calendar, title: 'Student Administration', description: 'Complete student lifecycle management with records, performance tracking, and comms.' },
-    { icon: Briefcase, title: 'Career Services', description: 'Connect students with job opportunities and career guidance from your alumni network.' },
+    { icon: Briefcase, title: 'Comprehensive Services', description: 'Empowering institutions with placement cells, career guidance, and parent engagement models.' },
     { icon: BarChart3, title: 'Analytics Dashboard', description: 'Unified analytics for student performance, alumni engagement, and institutional metrics.' },
     { icon: Globe, title: 'Unified Platform', description: 'One integrated solution for every educational management need — no more context switching.' },
   ]
@@ -91,7 +91,7 @@ const Home = () => {
       points: [
         'Centralized learning platform',
         'Access to course materials anytime',
-        'Career opportunities through alumni',
+        'Academic & Career Growth',
         'Seamless academic journey experience',
       ],
     },
