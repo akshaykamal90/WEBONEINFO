@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Play, Sparkles, CheckCircle2 } from 'lucide-react'
+import Counter from './Counter'
 
 const Hero = () => {
   const highlights = [
@@ -31,7 +32,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left – Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left animate-slide-in-left">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-950 border border-primary-100 dark:border-primary-900 text-primary-700 dark:text-primary-300 px-4 py-2 rounded-full text-sm font-medium mb-8">
               <Sparkles className="h-3.5 w-3.5" />
@@ -105,7 +106,7 @@ const Hero = () => {
           </div>
 
           {/* Right – Visual Image Banner */}
-          <div className="relative mt-12 lg:mt-0">
+          <div className="relative mt-12 lg:mt-0 animate-slide-in-right">
             {/* Main banner image */}
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
@@ -129,7 +130,9 @@ const Hero = () => {
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <p className="text-xs font-semibold text-gray-700 dark:text-gray-300">Platform live</p>
               </div>
-              <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">50K+ users active now</p>
+              <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                <Counter end={50} suffix="K+ users active now" />
+              </p>
             </div>
           </div>
         </div>
@@ -138,12 +141,14 @@ const Hero = () => {
         <div className="mt-20 pt-10 border-t border-gray-100 dark:border-gray-800">
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center">
             {[
-              { value: '500+', label: 'Institutions' },
-              { value: '50K+', label: 'Active Users' },
-              { value: '98%', label: 'Satisfaction' },
+              { numericValue: 500, suffix: '+', label: 'Institutions' },
+              { numericValue: 50, suffix: 'K+', label: 'Active Users' },
+              { numericValue: 98, suffix: '%', label: 'Satisfaction' },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="text-3xl font-extrabold text-gray-900 dark:text-white">{stat.value}</p>
+                <p className="text-3xl font-extrabold text-gray-900 dark:text-white">
+                  <Counter end={stat.numericValue} suffix={stat.suffix} />
+                </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{stat.label}</p>
               </div>
             ))}

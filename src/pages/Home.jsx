@@ -21,6 +21,7 @@ import {
   Shield,
   Globe
 } from 'lucide-react'
+import Counter from '../components/Counter'
 
 // ─── Reusable Section Wrapper ───────────────────────────────────────────────
 const Section = ({ children, className = '' }) => (
@@ -50,13 +51,61 @@ const Home = () => {
   ]
 
   const features = [
-    { icon: UserCheck, title: 'Alumni Management', description: 'Build a thriving alumni network with mentorship programs, events, and career opportunities.' },
-    { icon: Database, title: 'Learning Management', description: 'Teachers can upload syllabi, create tests, and manage courses from one place.' },
-    { icon: Calendar, title: 'Student Administration', description: 'Complete student lifecycle management with records, performance tracking, and comms.' },
-    { icon: Briefcase, title: 'Comprehensive Services', description: 'Empowering institutions with placement cells, career guidance, and parent engagement models.' },
-    { icon: BarChart3, title: 'Analytics Dashboard', description: 'Unified analytics for student performance, alumni engagement, and institutional metrics.' },
-    { icon: Globe, title: 'Unified Platform', description: 'One integrated solution for every educational management need — no more context switching.' },
+    { 
+      icon: UserCheck, 
+      title: 'Alumni Management', 
+      description: 'Build a thriving alumni network with mentorship programs, events, and career opportunities.',
+      theme: 'blue'
+    },
+    { 
+      icon: Database, 
+      title: 'Learning Management', 
+      description: 'Teachers can upload syllabi, create tests, and manage courses from one place.',
+      theme: 'emerald'
+    },
+    { 
+      icon: Calendar, 
+      title: 'Student Administration', 
+      description: 'Complete student lifecycle management with records, performance tracking, and comms.',
+      theme: 'amber'
+    },
+    { 
+      icon: Briefcase, 
+      title: 'Comprehensive Services', 
+      description: 'Empowering institutions with placement cells, career guidance, and parent engagement models.',
+      theme: 'indigo'
+    },
+    { 
+      icon: BarChart3, 
+      title: 'Analytics Dashboard', 
+      description: 'Unified analytics for student performance, alumni engagement, and institutional metrics.',
+      theme: 'rose'
+    },
+    { 
+      icon: Globe, 
+      title: 'Unified Platform', 
+      description: 'One integrated solution for every educational management need — no more context switching.',
+      theme: 'purple'
+    },
   ]
+
+  const featureHoverThemes = {
+    blue: 'hover:border-blue-200 hover:bg-blue-50/50',
+    emerald: 'hover:border-emerald-200 hover:bg-emerald-50/50',
+    amber: 'hover:border-amber-200 hover:bg-amber-50/50',
+    indigo: 'hover:border-indigo-200 hover:bg-indigo-50/50',
+    rose: 'hover:border-rose-200 hover:bg-rose-50/50',
+    purple: 'hover:border-purple-200 hover:bg-purple-50/50'
+  }
+
+  const iconThemes = {
+    blue: 'bg-blue-50 text-blue-600 group-hover:bg-blue-100',
+    emerald: 'bg-emerald-50 text-emerald-600 group-hover:bg-emerald-100',
+    amber: 'bg-amber-50 text-amber-600 group-hover:bg-amber-100',
+    indigo: 'bg-indigo-50 text-indigo-600 group-hover:bg-indigo-100',
+    rose: 'bg-rose-50 text-rose-600 group-hover:bg-rose-100',
+    purple: 'bg-purple-50 text-purple-600 group-hover:bg-purple-100'
+  }
 
   const benefits = [
     {
@@ -118,12 +167,12 @@ const Home = () => {
       <Hero />
 
       {/* ── Product Showcase ────────────────────────────────────────────── */}
-      <Section className="bg-gray-50 dark:bg-gray-900">
+      <Section className="bg-[rgb(79,70,229)] dark:bg-indigo-950/50 text-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge={<><Star className="h-3.5 w-3.5" /> Product Showcase</>}
-            title="See iMentor in Action"
-            subtitle="Real screenshots of the platform — explore every feature at a glance."
+            badge={<span className="bg-black/10 text-black px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 backdrop-blur-sm border border-black/10"><Star className="h-3.5 w-3.5" /> Product Showcase</span>}
+            title={<span className="text-black">See iMentor in Action</span>}
+            subtitle={<span className="text-black/80">Real screenshots of the platform — explore every feature at a glance.</span>}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -223,42 +272,60 @@ const Home = () => {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: '500+', label: 'Institutions', icon: Shield, color: 'from-primary-500 to-primary-600' },
-                { value: '50K+', label: 'Active Users', icon: Users, color: 'from-emerald-500 to-emerald-600' },
-                { value: '98%', label: 'Satisfaction', icon: Star, color: 'from-amber-500 to-amber-600' },
+                { numericValue: 500, suffix: '+', label: 'Institutions', icon: Shield, color: 'from-primary-500 to-primary-600' },
+                { numericValue: 50, suffix: 'K+', label: 'Active Users', icon: Users, color: 'from-emerald-500 to-emerald-600' },
+                { numericValue: 98, suffix: '%', label: 'Satisfaction', icon: Star, color: 'from-amber-500 to-amber-600' },
                 { value: '24/7', label: 'Support', icon: Clock, color: 'from-rose-500 to-rose-600' },
-              ].map(({ value, label, icon: Icon, color }) => (
-                <div key={label} className="card text-center group hover:shadow-md hover:-translate-y-1 transition-all duration-200">
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mx-auto mb-3`}>
-                    <Icon className="h-5 w-5 text-white" />
+              ].map((stat) => {
+                const { value, numericValue, suffix, label, icon: Icon, color } = stat
+                return (
+                  <div key={label} className="card text-center group hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mx-auto mb-3`}>
+                      <Icon className="h-5 w-5 text-white" />
+                    </div>
+                    <p className="text-2xl font-extrabold text-gray-900 dark:text-white">
+                      {numericValue !== undefined ? (
+                        <Counter end={numericValue} suffix={suffix} />
+                      ) : (
+                        value
+                      )}
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{label}</p>
                   </div>
-                  <p className="text-2xl font-extrabold text-gray-900 dark:text-white">{value}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{label}</p>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>
       </Section>
 
       {/* ── Features ─────────────────────────────────────────────────────── */}
-      <Section className="bg-white dark:bg-gray-950">
+      <Section className="bg-[rgb(79,70,229)] dark:bg-indigo-950/50 text-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge="Features"
-            title="Powerful Features for Modern Institutions"
-            subtitle="Everything you need to build and maintain a thriving educational ecosystem."
+            badge={<span className="bg-black/10 text-black px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 backdrop-blur-sm border border-black/10">Features</span>}
+            title={<span className="text-black">Powerful Features for Modern Institutions</span>}
+            subtitle={<span className="text-black/80">Everything you need to build and maintain a thriving educational ecosystem.</span>}
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center md:text-left">
             {features.map((f, i) => {
               const Icon = f.icon
+              const hoverTheme = featureHoverThemes[f.theme]
+              const iconTheme = iconThemes[f.theme]
               return (
-                <div key={i} className="group p-6 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-primary-200 dark:hover:border-primary-800 hover:shadow-soft transition-all duration-200">
-                  <div className="w-10 h-10 rounded-xl bg-primary-50 dark:bg-primary-950 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary-100 dark:group-hover:bg-primary-900 transition-all duration-200">
-                    <Icon className="h-5 w-5 text-primary-600 dark:text-primary-400" />
+                <div 
+                  key={i} 
+                  className={`group p-8 rounded-2xl bg-white border border-black/5 ${hoverTheme} hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform`}
+                >
+                  <div className={`w-14 h-14 rounded-2xl ${iconTheme} flex items-center justify-center mb-6 mx-auto md:mx-0 transition-all duration-300 transform group-hover:rotate-6 shadow-sm group-hover:shadow-md`}>
+                    <Icon className="h-7 w-7 transition-colors duration-300" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{f.title}</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{f.description}</p>
+                  <h3 className="text-xl font-bold text-black mb-3 group-hover:text-inherit transition-colors duration-300">
+                    {f.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm group-hover:text-gray-700 transition-colors duration-300">
+                    {f.description}
+                  </p>
                 </div>
               )
             })}
