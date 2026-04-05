@@ -36,7 +36,7 @@ const Hero = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-950 border border-primary-100 dark:border-primary-900 text-primary-700 dark:text-primary-300 px-4 py-2 rounded-full text-sm font-medium mb-8">
               <Sparkles className="h-3.5 w-3.5" />
-              Trusted by 500+ Educational Institutions
+              Trusted by 50+ Educational Institutions
             </div>
 
             {/* Heading */}
@@ -100,7 +100,7 @@ const Hero = () => {
                 <div className="flex text-amber-400">
                   {[1,2,3,4,5].map((i) => <span key={i} className="text-sm">★</span>)}
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">2,847+ happy institutions</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">52+ happy institutions</p>
               </div>
             </div>
           </div>
@@ -141,8 +141,8 @@ const Hero = () => {
         <div className="mt-20 pt-10 border-t border-gray-100 dark:border-gray-800">
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center">
             {[
-              { numericValue: 500, suffix: '+', label: 'Institutions' },
-              { numericValue: 50, suffix: 'K+', label: 'Active Users' },
+              { numericValue: 50, suffix: '+', label: 'Institutions' },
+              { numericValue: 10, suffix: 'K+', label: 'Active Users' },
               { numericValue: 98, suffix: '%', label: 'Satisfaction' },
             ].map((stat) => (
               <div key={stat.label}>
